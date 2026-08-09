@@ -1,7 +1,14 @@
 import { forwardRef, useEffect, useState, useId } from 'react';
 import gsap from 'gsap';
 
-const HERO_VIDEO = 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786169753/hero_edited_vrnxwh.mp4';
+const HERO_VIDEO_DESKTOP =
+  'https://res.cloudinary.com/ll6thxdy/video/upload/v1786169753/hero_edited_vrnxwh.mp4';
+const HERO_VIDEO_MOBILE =
+  'https://res.cloudinary.com/ll6thxdy/video/upload/v1786235183/0805_1_1_1_csuldh.mp4';
+const HERO_POSTER_MOBILE =
+  'https://res.cloudinary.com/ll6thxdy/video/upload/f_auto,q_auto,so_0/v1786235183/0805_1_1_1_csuldh.jpg';
+
+const MOBILE_MEDIA_QUERY = '(max-width: 767px)';
 
 interface HeroProps {
   visible: boolean;
@@ -9,6 +16,11 @@ interface HeroProps {
 
 const Hero = forwardRef<HTMLElement, HeroProps>(({ visible }, ref) => {
   const [hasEntered, setHasEntered] = useState(false);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined'
+      ? window.matchMedia(MOBILE_MEDIA_QUERY).matches
+      : false,
+  );
   const headingId = useId();
 
   useEffect(() => {
@@ -17,6 +29,13 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ visible }, ref) => {
     });
 
     return () => cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    const mql = window.matchMedia(MOBILE_MEDIA_QUERY);
+    const update = () => setIsMobile(mql.matches);
+    mql.addEventListener('change', update);
+    return () => mql.removeEventListener('change', update);
   }, []);
 
   const contentVisible = visible && hasEntered;
@@ -66,10 +85,12 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ visible }, ref) => {
         muted
         playsInline
         preload="metadata"
+        poster={isMobile ? HERO_POSTER_MOBILE : undefined}
         aria-label="Không gian salon Triệu Salon"
         className="absolute inset-0 h-full w-full object-cover object-center"
       >
-        <source src={HERO_VIDEO} type="video/mp4" />
+        <source media={MOBILE_MEDIA_QUERY} src={HERO_VIDEO_MOBILE} type="video/mp4" />
+        <source src={HERO_VIDEO_DESKTOP} type="video/mp4" />
       </video>
 
       <div
