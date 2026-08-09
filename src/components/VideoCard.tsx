@@ -45,7 +45,6 @@ export default function VideoCard({ video }: VideoCardProps) {
         ref={videoRef}
         src={video.src}
         poster={video.poster}
-        autoPlay
         muted
         loop
         playsInline
