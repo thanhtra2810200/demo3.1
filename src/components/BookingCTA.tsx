@@ -44,6 +44,28 @@ export default function BookingCTA() {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const el = videoRef.current;
+    const section = sectionRef.current;
+    if (!el || !section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            el.play().catch(() => {});
+          } else {
+            el.pause();
+          }
+        }
+      },
+      { threshold: 0.2 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       ref={sectionRef}
@@ -93,11 +115,10 @@ export default function BookingCTA() {
             <video
               ref={videoRef}
               src={CTA_VIDEO}
-              autoPlay
               muted
               loop
               playsInline
-              preload="auto"
+              preload="none"
               aria-label="Salon cinematic video"
               className="absolute inset-0 h-full w-full object-cover object-center"
             />
