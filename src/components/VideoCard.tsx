@@ -49,7 +49,7 @@ export default function VideoCard({ video }: VideoCardProps) {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
         disablePictureInPicture
         className="h-full w-full object-cover"
       />
