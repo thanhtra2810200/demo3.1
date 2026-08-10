@@ -1,95 +1,66 @@
-import { useRef, useEffect, useState } from 'react';
-import type { VideoItem } from '@/data/videoData';
-
-interface VideoCardProps {
-  video: VideoItem;
+export interface VideoItem {
+  id: number;
+  title: string;
+  subtitle: string;
+  src: string;
+  poster: string;
 }
 
-export default function VideoCard({ video }: VideoCardProps) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [videoReady, setVideoReady] = useState(false);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    const el = videoRef.current;
-
-    if (!container || !el) return;
-
-    setVideoReady(false);
-
-    const tryPlay = () => {
-      el.play().catch(() => {});
-    };
-
-    const handleLoadedData = () => {
-      setVideoReady(true);
-    };
-
-    el.addEventListener('loadeddata', handleLoadedData);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            if (el.readyState >= 2) {
-              tryPlay();
-            } else {
-              el.addEventListener('canplay', tryPlay, {
-                once: true,
-              });
-            }
-          } else {
-            el.pause();
-          }
-        }
-      },
-      {
-        threshold: 0.6,
-      },
-    );
-
-    observer.observe(container);
-
-    return () => {
-      observer.disconnect();
-      el.removeEventListener('canplay', tryPlay);
-      el.removeEventListener('loadeddata', handleLoadedData);
-    };
-  }, [video.src]);
-
-  return (
-    <div
-      ref={containerRef}
-      className="group relative h-full w-full overflow-hidden rounded-[2px]"
-    >
-      {/* Actual video */}
-      <video
-        ref={videoRef}
-        src={video.src}
-        poster={video.poster}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-
-      {/* Poster shown while video is loading */}
-      <img
-        src={video.poster}
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-        decoding="async"
-        className={`pointer-events-none absolute inset-0 z-10 h-full w-full object-cover transition-opacity duration-500 ease-out ${
-          videoReady ? 'opacity-0' : 'opacity-100'
-        }`}
-      />
-
-      {/* Subtle bottom gradient */}
-      <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60 transition-opacity duration-700 group-hover:opacity-80" />
-    </div>
-  );
-}
+export const videos: VideoItem[] = [
+  {
+    id: 1,
+    title: '',
+    subtitle: '',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330790/0805_11_ga8apr.mp4',
+    poster:
+      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346364/1_y4dqzy.jpg',
+  },
+  {
+    id: 2,
+    title: '',
+    subtitle: '',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330782/0805_3_1_xzphxo.mp4',
+    poster:
+      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346366/2_tfpeq8.jpg',
+  },
+  {
+    id: 3,
+    title: '',
+    subtitle: '',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330782/0805_6_wozpyc.mp4',
+    poster:
+      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346365/3_sg6ydc.jpg',
+  },
+  {
+    id: 4,
+    title: '',
+    subtitle: '',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330785/0805_15_odq0dl.mp4',
+    poster:
+      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346365/4_plhzdf.jpg',
+  },
+  {
+    id: 5,
+    title: '',
+    subtitle: '',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330786/0805_13_qq1ejc.mp4',
+    poster:
+      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346365/5_ugafm6.jpg',
+  },
+  {
+    id: 6,
+    title: '',
+    subtitle: '',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330782/0805_h1lfbo.mp4',
+    poster:
+      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346365/6_beyni2.jpg',
+  },
+  {
+    id: 7,
+    title: '',
+    subtitle: '',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330782/0805_12_igp4wk.mp4',
+    poster:
+      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346364/7_lzldwv.jpg',
+  },
+];
