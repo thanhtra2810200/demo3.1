@@ -8,59 +8,73 @@ export interface VideoItem {
 
 export const videos: VideoItem[] = [
   {
-    id: 1,
-    title: '',
-    subtitle: '',
-    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330790/0805_11_ga8apr.mp4',
-    poster:
-      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346364/1_y4dqzy.jpg',
-  },
-  {
     id: 2,
     title: '',
     subtitle: '',
-    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330782/0805_3_1_xzphxo.mp4',
-    poster:
-      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346366/2_tfpeq8.jpg',
-  },
-  {
-    id: 3,
-    title: '',
-    subtitle: '',
-    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330782/0805_6_wozpyc.mp4',
-    poster:
-      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346365/3_sg6ydc.jpg',
-  },
-  {
-    id: 4,
-    title: '',
-    subtitle: '',
-    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330785/0805_15_odq0dl.mp4',
-    poster:
-      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346365/4_plhzdf.jpg',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786149760/1_8_hnkxo3.mp4',
+    poster: 'https://res.cloudinary.com/ll6thxdy/video/upload/so_0/v1786149760/1_8_hnkxo3.jpg',
   },
   {
     id: 5,
     title: '',
     subtitle: '',
-    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330786/0805_13_qq1ejc.mp4',
-    poster:
-      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346365/5_ugafm6.jpg',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786149755/1_9_lcvp2y.mp4',
+    poster: 'https://res.cloudinary.com/ll6thxdy/video/upload/so_0/v1786149755/1_9_lcvp2y.jpg',
   },
   {
-    id: 6,
+    id: 1,
     title: '',
     subtitle: '',
-    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330782/0805_h1lfbo.mp4',
-    poster:
-      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346365/6_beyni2.jpg',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786149755/1_4_c38hqf.mp4',
+    poster: 'https://res.cloudinary.com/ll6thxdy/video/upload/so_0/v1786149755/1_4_c38hqf.jpg',
   },
   {
     id: 7,
     title: '',
     subtitle: '',
-    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786330782/0805_12_igp4wk.mp4',
-    poster:
-      'https://res.cloudinary.com/ll6thxdy/image/upload/v1786346364/7_lzldwv.jpg',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786149759/1_2_yxhvqw.mp4',
+    poster: 'https://res.cloudinary.com/ll6thxdy/video/upload/so_0/v1786149759/1_2_yxhvqw.jpg',
+  },
+  {
+    id: 4,
+    title: '',
+    subtitle: '',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786149755/1_12_ki6vht.mp4',
+    poster: 'https://res.cloudinary.com/ll6thxdy/video/upload/so_0/v1786149755/1_12_ki6vht.jpg',
+  },
+  {
+    id: 9,
+    title: '',
+    subtitle: '',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786149757/1_6_mklb5f.mp4',
+    poster: 'https://res.cloudinary.com/ll6thxdy/video/upload/so_0/v1786149757/1_6_mklb5f.jpg',
+  },
+  {
+    id: 3,
+    title: '',
+    subtitle: '',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786149765/1_14_xoja9h.mp4',
+    poster: 'https://res.cloudinary.com/ll6thxdy/video/upload/so_0/v1786149765/1_14_xoja9h.jpg',
+  },
+  {
+    id: 8,
+    title: '',
+    subtitle: '',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786149757/1_15_jex709.mp4',
+    poster: 'https://res.cloudinary.com/ll6thxdy/video/upload/so_0/v1786149757/1_15_jex709.jpg',
+  },
+  {
+    id: 6,
+    title: '',
+    subtitle: '',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786149755/1_13_dmhivo.mp4',
+    poster: 'https://res.cloudinary.com/ll6thxdy/video/upload/so_0/v1786149755/1_13_dmhivo.jpg',
+  },
+  {
+    id: 10,
+    title: '',
+    subtitle: '',
+    src: 'https://res.cloudinary.com/ll6thxdy/video/upload/v1786149757/1_1_ubtnjq.mp4',
+    poster: 'https://res.cloudinary.com/ll6thxdy/video/upload/so_0/v1786149757/1_1_ubtnjq.jpg',
   },
 ];
